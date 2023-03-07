@@ -11,10 +11,6 @@ a {
     color:rgb(64, 164, 252)
 }
 
-a:visited {
-    color:lightgray
-}
-
 a:hover, a:active {
     color:#eee; 
 }
