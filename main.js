@@ -1,1 +1,2 @@
-<noscript>Sorry, your browser does not support javascript.</noscript>
+<button onClick='hello world'>This is my address</button>
+
