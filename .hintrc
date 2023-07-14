@@ -9,6 +9,13 @@
         "frame-title": "off"
       }
     ],
-    "no-inline-styles": "off"
-  }
+    "no-inline-styles": "off",
+    "meta-viewport": "off",
+    "disown-opener": "off"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_ff <= 113"
+  ]
 }
