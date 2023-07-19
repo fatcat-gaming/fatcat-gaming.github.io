@@ -1,26 +1,54 @@
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R4X87MMZNT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-R4X87MMZNT');
-</script>
     <title>Contact Me - FatCat Gaming</title>
     <link rel="icon" href="/site/img/profile.ico">
     <link rel="stylesheet" href="main.css" type="text/css">
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block
+    }
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+    </style>
+    
 <body>
     <h1>How to contact me!</h1>
 
     <p>You can use these social links to contact me</p>
 
-       <p>
-        <br><u><a href="https://www.reddit.com/user/mc_FatCatYT">Reddit</a></u>
-        <br>Github: fatcat-gaming
+       <p style="text-align: center;">
+        <div class="row">
+            <div class="column">
+                <a href="https://www.reddit.com/user/mc_FatCatYT"><img src="site/img/reddit-logo.png" width="150" height="150"></a>
+                <br><a href="https://www.reddit.com/user/mc_FatCatYT">Reddit</a>
+            </div>
+            <div class="column">
+                <a href="https://github.com/fatcat-gaming"><img src="site/img/github-logo.png" width="150" height="150"></a>
+            </div>
+        </div>
+        
     </p>
     
 
