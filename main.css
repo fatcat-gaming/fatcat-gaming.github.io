@@ -21,3 +21,7 @@ table, tr, th, td, caption {
     border-collapse: collapse;
     padding: 0.5rem;
 }
+
+.bg {
+    background-color: chocolate;
+}
