@@ -2,8 +2,18 @@ html {
     font-size: 22px;
 }
 
+.header {
+    padding: 20px;
+    text-align: right;
+    background: #333;
+    color: white;
+    font-size: 25px;
+}
+
+.content {padding:20px;}
+
 body {
-    background-color: #333;
+    background-color: #1d1c1c;
     color:whitesmoke;
 }
 
@@ -16,12 +26,8 @@ a:hover, a:active {
 }
 
 table, tr, th, td, caption {
-    border: 1px solid #000000;
+    border: 1px solid #615f5f;
     font-family: 'Arial', Courier, monospace;
     border-collapse: collapse;
     padding: 0.5rem;
-}
-
-.bg {
-    background-color: black;
 }
