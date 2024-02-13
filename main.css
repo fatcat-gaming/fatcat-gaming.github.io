@@ -1,5 +1,7 @@
 html {
     font-size: 22px;
+    font-family:'Segoe UI', sans-serif
+    }
 }
 
 img {
@@ -11,13 +13,6 @@ img {
 margin-left: auto;
 margin-right: auto;
 display: block
-}
-
-.container {
-    margin: 0 auto;
-    max-width: 800px;
-    font-family: 'Golos Text', sans-serif;
-    line-height: 1.5;
 }
 
 .header {
@@ -34,6 +29,9 @@ body {
     background-color: #333;
     color:whitesmoke;
     text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+    line-height: 1.5;
 }
 
 a {
