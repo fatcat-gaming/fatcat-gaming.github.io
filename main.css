@@ -2,9 +2,6 @@ html {
     font-size: 22px;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
 img {
   display: block;
   margin-left: auto;
@@ -19,6 +16,7 @@ display: block
 .container {
     margin: 0 auto;
     max-width: 800px;
+    font-family: 'Golos Text', sans-serif;
     line-height: 1.5;
 }
 
