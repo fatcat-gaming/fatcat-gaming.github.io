@@ -16,6 +16,12 @@ margin-right: auto;
 display: block
 }
 
+.container {
+    margin: 0 auto;
+    max-width: 800px;
+    line-height: 1.5;
+}
+
 .header {
     padding: 20px;
     text-align: right;
