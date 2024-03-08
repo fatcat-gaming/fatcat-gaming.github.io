@@ -1,6 +1,7 @@
 * {
     font-size: 22px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
 }
 
 nav {
@@ -17,9 +18,8 @@ img {
 
 body {
     background-color: #222;
-    color:#eee;
+    color:#ddd;
     text-align: center;
-    line-height: 1.5;
 }
 
 button {
