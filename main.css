@@ -20,14 +20,24 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: center; /* Vertically centers the items */
+    align-items: center;
     list-style: none !important;
     padding: 10px;
     margin: 0;
     background-color: #333;
     color:#eee;
-    border-color: #333;
     gap:20px;
+    border: #222;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor:pointer;
+    transition-duration: 0.4s;
+    transition: background-color 0.3s ease;
+}
+
+button:hover{
+    background-color: #464545;
+    color:#eee;
 }
 
 li{
@@ -61,4 +71,12 @@ background-color: #333;
 color:#eee;
 gap:20px;
 }
-
+.nav-button {
+    background-color: #464545   ; /* Default color */
+  }
+  
+  .nav-button.active {
+    background-color: #007BFF; /* Highlight color */
+    color: white;
+  }
+  
