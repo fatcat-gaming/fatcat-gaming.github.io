@@ -48,7 +48,7 @@ button {
     color:#eee;
     gap:20px;
     border: #222;
-    border-radius: 4px;
+    border-radius: 18px;
     overflow: hidden;
     cursor:pointer;
     transition-duration: 0.4s;
@@ -80,14 +80,12 @@ display: flex;
 }
 
 .header {
-background-color: #333;
 display: flex;
 flex-direction: row;
 justify-content: flex-end;
 list-style: none !important;
 padding: 20px;
 margin: 0;
-background-color: #333;
 color:#eee;
 gap:20px;
 }
@@ -106,4 +104,13 @@ gap:20px;
 
 .header-big{
   font-size: 50px;
+}
+
+.body-text{
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align:left;
+  max-width: 800px;
 }
