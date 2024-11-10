@@ -114,3 +114,8 @@ gap:20px;
   text-align:left;
   max-width: 800px;
 }
+
+.light-mode{
+  background-color: #ddd;
+  color: #222;
+}
