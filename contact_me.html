@@ -34,12 +34,24 @@
 </style>
 </head>  
 <body>
-    <ul class="header">
-        <li><a href="index.html"><button>HOME</button></a></li>
-        <li><a href="contact_me.html"><button class="nav-button">SOCIALS</button></a></li>
-        <li><a href="music.html"><button>MUSIC</button></a></li>
-        <li><a href="about.html"><button>ABOUT</button></a></li>
-    </ul>
+    <section>
+        <ul class="header">
+            <li><a href="index.html"><button class="nav-button">HOME</button></a></li>
+            <li><a href="contact_me.html"><button>SOCIALS</button></a></li>
+            <li><a href="music.html"><button>MUSIC</button></a></li>
+            <li><a href="about.html"><button>ABOUT</button></a></li>
+            <div class="dropdown">
+                <button class="dropbtn">Settings</button>
+                <div class="dropdown-content">
+                  <button id="toggle-dark-mode" onclick="myFunction()">☀️/🌙</button>
+                </div>
+            </div>
+            <script>function myFunction() {
+                var element = document.body;
+                element.classList.toggle("light-mode");
+             }</script>
+        </ul>
+    </section>
     <h1>How to contact me!</h1>
 
     <p>You can use these social links to contact me</p>

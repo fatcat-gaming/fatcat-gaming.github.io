@@ -6,12 +6,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 </head>
 <body>
-    <ul class="header">
-        <li><a href="index.html"><button >HOME</button></a></li>
-        <li><a href="contact_me.html"><button>SOCIALS</button></a></li>
-        <li><a href="music.html"><button>MUSIC</button></a></li>
-        <li><a href="about.html"><button class="nav-button">ABOUT</button></a></li>
-    </ul>
+    <section>
+        <ul class="header">
+            <li><a href="index.html"><button class="nav-button">HOME</button></a></li>
+            <li><a href="contact_me.html"><button>SOCIALS</button></a></li>
+            <li><a href="music.html"><button>MUSIC</button></a></li>
+            <li><a href="about.html"><button>ABOUT</button></a></li>
+            <div class="dropdown">
+                <button class="dropbtn">Settings</button>
+                <div class="dropdown-content">
+                  <button id="toggle-dark-mode" onclick="myFunction()">Toggle Dark Mode</button>
+                </div>
+            </div>
+            <script>function myFunction() {
+                var element = document.body;
+                element.classList.toggle("light-mode");
+             }</script>
+        </ul>
+    </section>
     <div class="header-big">About Me</div>
     
     <div class="body-text">In short, I'm a YouTuber. I started my YouTube career in 2018, but officially started this channel in 2022. 
