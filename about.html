@@ -7,7 +7,7 @@
 </head>
 <body>
     <section>
-        <ul class="header">
+        <ul class="navbar">
             <li><a href="index.html"><button class="nav-button">HOME</button></a></li>
             <li><a href="contact_me.html"><button>SOCIALS</button></a></li>
             <li><a href="music.html"><button>MUSIC</button></a></li>
@@ -24,6 +24,10 @@
              }</script>
         </ul>
     </section>
+
+    <br>
+    <br>
+
     <div class="header-big">About Me</div>
     
     <div class="body-text">In short, I'm a YouTuber. I started my YouTube career in 2018, but officially started this channel in 2022. 
@@ -34,5 +38,20 @@
     </div>
 
             <img src="site/img/bale.png" width="400"> <div class="caption">one of my all time favorites</div>
+
+            <script>
+                // Add the "active" class to the button corresponding to the current page
+                document.addEventListener("DOMContentLoaded", function() {
+                  const path = window.location.pathname;
+            
+                  if (path.includes("home")) {
+                    document.getElementById("homeButton").classList.add("active");
+                  } else if (path.includes("about")) {
+                    document.getElementById("aboutButton").classList.add("active");
+                  } else if (path.includes("contact")) {
+                    document.getElementById("contactButton").classList.add("active");
+                  }
+                });
+              </script>
 </body>
 

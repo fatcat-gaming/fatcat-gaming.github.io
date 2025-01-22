@@ -16,14 +16,15 @@
   background-color: #ddd;
   color: #222;
 }
+
 </style>
 <body>
 <section>
-    <ul class="header">
-        <li><a href="index.html"><button class="nav-button">HOME</button></a></li>
-        <li><a href="contact_me.html"><button>SOCIALS</button></a></li>
-        <li><a href="music.html"><button>MUSIC</button></a></li>
-        <li><a href="about.html"><button>ABOUT</button></a></li>
+    <ul class="navbar">
+        <li><a href="index.html"><button class="nav-button" id="homeButton">HOME</button></a></li>
+        <li><a href="contact_me.html"><button class="nav-button" id="contactButton">SOCIALS</button></a></li>
+        <li><a href="music.html"><button class="nav-button" id=>MUSIC</button></a></li>
+        <li><a href="about.html"><button class="nav-button" id="aboutButton">ABOUT</button></a></li>
         <div class="dropdown">
             <button class="dropbtn">Settings</button>
             <div class="dropdown-content">
@@ -34,9 +35,24 @@
             var element = document.body;
             element.classList.toggle("light-mode");
          }</script>
+          <script>
+            // Add the "active" class to the button corresponding to the current page
+            document.addEventListener("DOMContentLoaded", function() {
+              const path = window.location.pathname;
+        
+              if (path.includes("home")) {
+                document.getElementById("homeButton").classList.add("active");
+              } else if (path.includes("about")) {
+                document.getElementById("aboutButton").classList.add("active");
+              } else if (path.includes("contact")) {
+                document.getElementById("contactButton").classList.add("active");
+              }
+            });
+          </script>
     </ul>
 </section>
-
+<br>
+<br>
 <div class="header-big"><u></u>Hey There!</u></div>
 
 <p>Welcome to my super cool official website! Look around if you want!
@@ -58,5 +74,7 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 <p>I don't know why I put this here and not in the <a href="contact_me.html">contact me</a> page, I just felt like it
 <br>Anyways, if your interested in meeting new people, or having a conversation with me(Yes I come on there A LOT) then just use the embed below, made for your convenience</p>
 <iframe class="center" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" src="https://discord.com/widget?id=1109515613556187156&theme=dark"></iframe>
+This political cartoon illustrates the political deadlock in Canada during a period of tension between French and English factions. The imagery presents two figures engaged in a tug-of-war, symbolizing the struggle for political dominance and control. On the left, there is George Brown, who represents the English speaking parts of Canada (Canada West), and on the right, there is George Etienne Cartier, who represents the French speaking parts of Canada (Canada East). 
+<script src="main.js"></script>
 </body>
 </html>
