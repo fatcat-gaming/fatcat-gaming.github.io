@@ -9,3 +9,8 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("contactButton").classList.add("active");
     }
 });
+
+function myFunction() {
+    var element = document.body;
+    element.classList.toggle("light-mode");
+ };
