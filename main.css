@@ -113,6 +113,20 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     color: white;
   }
 
+  .cta-btn {
+    background-color: #1d72b8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #155a8a;
+}
+
  .caption{
     font-size: 15px;
 }
@@ -183,3 +197,4 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
