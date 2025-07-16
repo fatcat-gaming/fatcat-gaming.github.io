@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="FatCat">
+    <meta name="description" content="The super official website for FatCat_mc">
+    <title>FatCat Gaming</title>
+    <link rel="icon" href="/site/img/profile.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .light-mode{
+  background-color: #ddd;
+  color: #222;
+}
+
+    canvas {
+      background: cornflowerblue;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+    <section>
+    <ul class="navbar">
+        <li><a href="index.html"><button class="nav-button" id="homeButton">HOME</button></a></li>
+        <li><a href="contact_me.html"><button class="nav-button" id="contactButton">SOCIALS</button></a></li>
+        <li><a href="music.html"><button class="nav-button" id=>MUSIC</button></a></li>
+        <li><a href="about.html"><button class="nav-button" id="aboutButton">ABOUT</button></a></li>
+        <div class="dropdown">
+            <button class="dropbtn">Settings</button>
+            <div class="dropdown-content">
+              <button id="toggle-dark-mode" onclick="myFunction()">☀️/🌙</button>
+            </div>
+        </div>
+        <script>function myFunction() {
+            var element = document.body;
+            element.classList.toggle("light-mode");
+         }</script>
+          <script>
+            // Add the "active" class to the button corresponding to the current page
+            document.addEventListener("DOMContentLoaded", function() {
+              const path = window.location.pathname;
+        
+              if (path.includes("home")) {
+                document.getElementById("homeButton").classList.add("active");
+              } else if (path.includes("about")) {
+                document.getElementById("aboutButton").classList.add("active");
+              } else if (path.includes("contact")) {
+                document.getElementById("contactButton").classList.add("active");
+              }
+            });
+          </script>
+    </ul>
+</section>
+<br>
+<br>
+  <div class="header-big">Geometry Dash Ripoff</div>
+  <canvas id="gameCanvas" width="800" height="400"></canvas>
+  <script src="main.js"></script>
+  <br>
+    <div class="body-text">
+        This is a simple Geometry Dash clone I made with the HTML Canvas and JavaScript. Use the spacebar to jump and avoid the obstacles.
+        <br>
+        <br>
+        <strong>Note:</strong> This is a basic implementation and does not include all features of the original game.
+</body>
+</html>
