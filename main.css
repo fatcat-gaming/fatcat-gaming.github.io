@@ -119,8 +119,8 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
   
   .nav-button.active {
-    background-color: #eee; /* Highlight color */
-    color: white;
+    background-color: #eee;
+    color: #222;
   }
 
   .cta-btn {

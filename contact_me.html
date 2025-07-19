@@ -1,4 +1,6 @@
+<html lang="en" data-theme="cupcake">
 <head>
+    <meta charset="utf-8">
     <title>Contact Me - FatCat Gaming</title>
     <link rel="icon" href="/site/img/profile.ico">
     <link rel="stylesheet" href="main.css" type="text/css">
@@ -35,23 +37,39 @@
 </head>  
 <body>
     <section>
-        <ul class="navbar">
-            <li><a href="index.html"><button class="nav-button">HOME</button></a></li>
-            <li><a href="contact_me.html"><button>SOCIALS</button></a></li>
-            <li><a href="music.html"><button>MUSIC</button></a></li>
-            <li><a href="about.html"><button>ABOUT</button></a></li>
-            <div class="dropdown">
-                <button class="dropbtn">Settings</button>
-                <div class="dropdown-content">
-                  <button id="toggle-dark-mode" onclick="myFunction()">☀️/🌙</button>
-                </div>
+    <ul class="navbar">
+        <li><a href="index.html"><button class="nav-button" id="homeButton">HOME</button></a></li>
+        <li><a href="contact_me.html"><button class="nav-button" id="contactButton">SOCIALS</button></a></li>
+        <li><a href="music.html"><button class="nav-button" id="musicButton">MUSIC</button></a></li>
+        <li><a href="about.html"><button class="nav-button" id="aboutButton">ABOUT</button></a></li>
+        <div class="dropdown">
+            <button class="dropbtn">Settings</button>
+            <div class="dropdown-content">
+              <button id="toggle-dark-mode" onclick="myFunction()">☀️/🌙</button>
             </div>
-            <script>function myFunction() {
-                var element = document.body;
-                element.classList.toggle("light-mode");
-             }</script>
-        </ul>
-    </section>
+        </div>
+        <script>function myFunction() {
+            var element = document.body;
+            element.classList.toggle("light-mode");
+         }</script>
+          <script>
+            // Add the "active" class to the button corresponding to the current page
+            document.addEventListener("DOMContentLoaded", function() {
+              const path = window.location.pathname;
+        
+              if (path.includes("index")) {
+                document.getElementById("homeButton").classList.add("active");
+              } else if (path.includes("about")) {
+                document.getElementById("aboutButton").classList.add("active");
+              } else if (path.includes("contact")) {
+                document.getElementById("contactButton").classList.add("active");
+              } else if (path.includes("music")) {
+                document.getElementById("musicButton").classList.add("active");
+              }
+            });
+          </script>
+    </ul>
+</section>
 
     <br>
     <br>
@@ -72,3 +90,4 @@
             </div>
         </div>
 </body>
+</html>

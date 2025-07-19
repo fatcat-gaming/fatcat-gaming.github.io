@@ -15,8 +15,10 @@ function myFunction() {
     element.classList.toggle("light-mode");
  };
 
- const canvas = document.getElementById("gameCanvas");
+ // Game Code //
+const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
+
 
 const player = {
   x: 50,
@@ -32,15 +34,7 @@ const player = {
 
 const obstacles = [];
 let frame = 0;
-
-const ground = {
-  x: 30,
-  y: 340,
-  width: canvas.width,
-  height: 60,
-  color: "saddlebrown"
-};
-
+let score = 0;
 const groundY = 370;
 
 let gameOver = false;
