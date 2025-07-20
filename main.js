@@ -62,14 +62,14 @@ function spawnPlatform() {
   let width = 100;
   let height = 20;
   let x = canvas.width;
-  let y = Math.random() * 30 + 310;
+  let y = Math.random() * 30 + 320;
 
   platforms.push({
     x: x,
     y: y,
     width: width,
     height: height,
-    color: "green",
+    color: "purple",
   });
 }
 
