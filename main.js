@@ -31,21 +31,46 @@ const player = {
   gravity: 0.9,
   jumpForce: -12,
   isJumping: false,
+  rotation: 0
 };
 
 const obstacles = [];
 const platforms = [];
 
+const images = {
+  player: "player.png",
+  obstacle: "obstacle.png",
+  platform: "platform.png"
+};
+
+const textures = {};
+let loadedImages = 0;
+const totalImages = Object.keys(images).length;
+
+function loadTextures(callback) {
+  for (const key in images) {
+    const img = new Image();
+    img.src = images[key];
+    img.onload = () => {
+      loadedImages++;
+      if (loadedImages === totalImages) callback();
+    };
+    textures[key] = img;
+  }
+}
+
+
+
 let frame = 0;
 let score = 0;
-let gameOver = false;
 const groundY = 370;
+let gameOver = false;
 
 let obstacleTimer = 0;
 let nextObstacleFrame = getRandomInterval();
 
 function getRandomInterval() {
-  return Math.floor(Math.random() * 16) + 50; // Between 50–65 frames
+  return Math.floor(Math.random() * 16) + 50;
 }
 
 function spawnObstacle() {
@@ -54,28 +79,24 @@ function spawnObstacle() {
     y: groundY,
     width: 20,
     height: 60,
-    color: "red",
+    color: "red"
   });
 }
 
 function spawnPlatform() {
-  let width = 100;
-  let height = 20;
-  let x = canvas.width;
-  let y = Math.random() * 30 + 320;
-
   platforms.push({
-    x: x,
-    y: y,
-    width: width,
-    height: height,
-    color: "purple",
+    x: canvas.width,
+    y: Math.random() * 50 + 315,
+    width: 50,
+    height: 500,
+    color: "green"
   });
 }
 
 function restartGame() {
   player.y = 300;
   player.velocityY = 0;
+  player.rotation = 0;
   player.isJumping = false;
 
   obstacles.length = 0;
@@ -83,19 +104,26 @@ function restartGame() {
   frame = 0;
   score = 0;
   gameOver = false;
-
-  update();
 }
+
+document.addEventListener("keydown", function (e) {
+  if (!gameOver && e.code === "Space" && !player.isJumping) {
+    player.velocityY = player.jumpForce;
+    player.isJumping = true;
+  }
+  if (gameOver && e.code === "KeyR") {
+    restartGame();
+  }
+});
 
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "lightblue";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Player physics
+  // Apply gravity
   player.velocityY += player.gravity;
-  if (player.velocityY > 0) {
-    player.velocityY += 0.4; // Faster falling
-  }
+  if (player.velocityY > 0) player.velocityY += 0.4;
   player.y += player.velocityY;
 
   // Ground collision
@@ -103,21 +131,27 @@ function update() {
     player.y = groundY;
     player.velocityY = 0;
     player.isJumping = false;
+    player.rotation = 0; // ✅ fixes angled landing
   }
 
-  // Draw player
+  // Draw player (with rotation)
+  ctx.save();
+  ctx.translate(player.x + player.width / 2, player.y + player.height / 2);
+  if (player.isJumping) player.rotation += 0.15;
+  ctx.rotate(player.rotation);
   ctx.fillStyle = player.color;
-  ctx.fillRect(player.x, player.y, player.width, player.height);
+  ctx.fillRect(-player.width / 2, -player.height / 2, player.width, player.height);
+  ctx.restore();
 
-  // Update and draw obstacles
+  // Draw obstacles
   for (let i = 0; i < obstacles.length; i++) {
     let obs = obstacles[i];
     obs.x -= 6;
-
     ctx.fillStyle = obs.color;
     ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+    
 
-    // Collision with player
+    // Collision
     if (
       player.x < obs.x + obs.width &&
       player.x + player.width > obs.x &&
@@ -125,26 +159,18 @@ function update() {
       player.y + player.height > obs.y
     ) {
       gameOver = true;
-      ctx.fillStyle = "black";
-      ctx.font = "30px Inter";
-      ctx.fillText("Game Over!", canvas.width / 2 - 70, canvas.height / 2);
-      ctx.fillText("Press 'R' to Restart", canvas.width / 2 - 100, canvas.height / 2 + 40);
-      return;
     }
   }
 
- 
-  for (let i = 0; i < platforms.length; i++) {
-    let plat = platforms[i];
+  // Draw platforms
+  for (let plat of platforms) {
+    plat.x -= 6; // Move platforms left
     ctx.fillStyle = plat.color;
     ctx.fillRect(plat.x, plat.y, plat.width, plat.height);
-    plat.x -= 6; 
-    
   }
 
-  
-  for (let i = 0; i < platforms.length; i++) {
-    let plat = platforms[i];
+  // Platform collision
+  for (let plat of platforms) {
     if (
       player.x + player.width > plat.x &&
       player.x < plat.x + plat.width &&
@@ -155,13 +181,22 @@ function update() {
       player.y = plat.y - player.height;
       player.velocityY = 0;
       player.isJumping = false;
+      player.rotation = 0;
     }
   }
 
-  if (frame % 200 === 0) {
-    spawnPlatform();
+  // Spawn platforms occasionally
+  if (frame % 200 === 0) spawnPlatform();
+
+  // Game over text
+  if (gameOver) {
+    ctx.fillStyle = "black";
+    ctx.font = "30px Inter";
+    ctx.fillText("Game Over!", canvas.width / 2 - 70, canvas.height / 2);
+    ctx.fillText("Press 'R' to Restart", canvas.width / 2 - 100, canvas.height / 2 + 40);
   }
 
+  // Spawn obstacles
   obstacleTimer++;
   if (obstacleTimer >= nextObstacleFrame) {
     spawnObstacle();
@@ -170,18 +205,7 @@ function update() {
   }
 
   frame++;
-  requestAnimationFrame(update);
+  requestAnimationFrame(update); // ✅ only called once
 }
 
-document.addEventListener("keydown", function (e) {
-  if (e.code === "Space" && !player.isJumping) {
-    player.velocityY = player.jumpForce;
-    player.isJumping = true;
-  }
-
-  if (gameOver && e.code === "KeyR") {
-    restartGame();
-  }
-});
-
-update();
+update(); // ✅ starts the loop only once
